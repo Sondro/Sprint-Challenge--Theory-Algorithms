@@ -10,6 +10,8 @@ both `antelope` and `antelopes`.)
     antelope rocks out
     antelopes rock out
 
+### A: /antelopes?/g
+
 * Regex that matches either of:
 
     goat
