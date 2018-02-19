@@ -59,7 +59,7 @@ bunnyEars = function (bunnies) { // here bunnies === n
   return 2 + bunnyEars(bunnies - 1);
 }
 
-// g): O(n), Big O of []
+// g): O(n), Big O of n [linear]
 search = function (array, arraySize, target) { // here arraySize === n
   if (arraySize > 0) {
     if (array[arraySize-1] === target) { return true; }
