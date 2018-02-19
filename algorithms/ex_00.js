@@ -10,7 +10,7 @@ while (a < n * n * n) {
   a = a + n * n;
 }
 
-// a0): O(n^3), Big O of n cubed 
+// a0): O(n^3), Big O of n cubed [cubic]
 let a = 0; 
 while (a < n * n * n) {
   a++;
@@ -22,14 +22,14 @@ while (a < n * n * n) {
   a *= n; // a = a * n
 }
 
-// b): O(logn), Big of log n [logarithmic]
+// b): O(logn), Big O of log n [logarithmic]
 // input array is of length n
 let i = array.length - 1;
 while (array[i] > x && i >= 0) {
   i = i / 2;
 }
 
-// c):
+// c): O(sqrt(n)), Big O of square root of n [ faster than logarithmic, slower than linear]
 let sum = 0;
 for (i = 0; i < Math.sqrt(n) / 2; i++) {
   for ( j = i; j < 8 + i; j++) {
@@ -37,13 +37,13 @@ for (i = 0; i < Math.sqrt(n) / 2; i++) {
   }
 }
 
-// d): 
+// d): O(nlogn), Big O of n log n [log linear, ligarithmic, quasi-linear]
 let sum = 0;
 for (i = 1; i < n; i *= 2) {
   for (j = 0; j < n; j++) { sum++; }
 }
 
-// e): 
+// e): O(n^3), Big O of n cubed [cubic]
 let sum = 0;
 for (i = 0; i < n; i++) {
   for (j = i + 1; j < n; j++) {
@@ -53,13 +53,13 @@ for (i = 0; i < n; i++) {
   }
 }
 
-// f:) 
+// f): O(n), Big O of n [linear]
 bunnyEars = function (bunnies) { // here bunnies === n
   if (bunnies === 0) { return 0; }
   return 2 + bunnyEars(bunnies - 1);
 }
 
-// g): 
+// g): O(n), Big O of []
 search = function (array, arraySize, target) { // here arraySize === n
   if (arraySize > 0) {
     if (array[arraySize-1] === target) { return true; }
