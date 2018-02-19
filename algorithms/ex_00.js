@@ -4,13 +4,25 @@ Analysis of Algorithms
 Exercise I. Give an runtime analysis for the input size n of each:
 
 **********************************************/
-// a):  O(n1)
+// a):  O(n), Big O of n [linear]
 let a = 0;
 while (a < n * n * n) {
   a = a + n * n;
 }
 
-// b): 
+// a0): O(n^3), Big O of n cubed 
+let a = 0; 
+while (a < n * n * n) {
+  a++;
+}
+
+// a1): O(n^2), Big O of n squared
+let a = 0; 
+while (a < n * n * n) {
+  a *= n; // a = a * n
+}
+
+// b): O(logn), Big of log n [logarithmic]
 // input array is of length n
 let i = array.length - 1;
 while (array[i] > x && i >= 0) {
