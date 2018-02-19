@@ -78,9 +78,18 @@ search = function (array, arraySize, target) { // here arraySize === n
 a) Given an array a of n numbers, design a linear running time algorithm to find the maximum value of
   a[j] - a[i], where j ≥ i.
 **********************************************************************************************************/ 
-if (j >= i) { 
-  a[j] - a[i];
+// j >= i
+let j = 99;
+let i = 0;
+let n = 0;
+let min = j;
+let max = j;
+for (; j >= i ; i++) { 
+  n = a[j] - a[i];
+  if (a[j] - a[i] > max) { max = a[j] - a[i]; }
+  if (a[j] - a[i] < min) { min = a[j] - a[i]; }
 }
+
 /*********************************************************************************************************
 b) Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg is broken if it
     is thrown off floor f or higher, and unbroken otherwise. Devise a strategy to determine the value of f
@@ -90,7 +99,7 @@ b) Suppose that you have an n-story building and plenty of eggs. Suppose also th
 function testEggs(eggs) {
   const len = eggs.length;
   let f = 0;
-  for (;f < len ; f++) {
+  for (; f < len ; f++) {
     if(isBroke(eggs[i], f)) { return f;} 
 }
 
