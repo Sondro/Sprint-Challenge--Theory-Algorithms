@@ -37,7 +37,7 @@ for (i = 0; i < Math.sqrt(n) / 2; i++) {
   }
 }
 
-// d): O(nlogn), Big O of n log n [log linear, ligarithmic, quasi-linear]
+// d): O(n log n), Big O of n log n [log linear, ligarithmic, quasi-linear]
 let sum = 0;
 for (i = 1; i < n; i *= 2) {
   for (j = 0; j < n; j++) { sum++; }
@@ -78,17 +78,28 @@ search = function (array, arraySize, target) { // here arraySize === n
 a) Given an array a of n numbers, design a linear running time algorithm to find the maximum value of
   a[j] - a[i], where j ≥ i.
 **********************************************************************************************************/ 
-// j >= i
-let j = 99;
+const a = [23, 2, 5, 55, 0];
+const n = a.length;
+let cycles = (n * n) - 1; 
 let i = 0;
-let n = 0;
-let min = j;
-let max = j;
-for (; j >= i ; i++) { 
-  n = a[j] - a[i];
-  if (a[j] - a[i] > max) { max = a[j] - a[i]; }
-  if (a[j] - a[i] < min) { min = a[j] - a[i]; }
+let j = 0;
+let min = 0;
+let max = 0;
+let val = 0;
+for (; cycles > -1; cycles--) { 
+  val = a[j] - a[i];
+  if (val > max) { max = val; }
+  if (val < min) { min = val; }
+//  console.log(`a[j] - a[i] = val : ${a[j]} - ${a[i]} = ${val}`);
+//  console.log(`i, n, j  : ${i}, ${n}, ${j}`);
+//  console.log(`max: ${max}`);
+//  console.log(`min: ${min}`);
+  if(i < n - 1) { i++; }
+  else{ j++; i = 0; }
 }
+
+console.log(`max: ${max}`);
+console.log(`min: ${min}`);
 
 /*********************************************************************************************************
 b) Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg is broken if it
@@ -135,8 +146,10 @@ function quicksort(array) {
 /*
 a) If the quicksort pivot is always set to be the first element of the array...
     Q: What is the runtime on an input array that is already sorted? Why?
-    A:
+    A: O(n^2)
+      - In the worst case it has the longest distance to traverse from end to end.
 b) If quicksort is set so that the pivot is always the median element of the array... 
     Q: What is the runtime of this algorithm? Why?
-    A:
+    A: O (n log n)
+      - In the worst case the pivot only has to travel half the distance to each end.
 */
